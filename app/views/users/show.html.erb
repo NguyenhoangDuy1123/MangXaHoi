@@ -16,16 +16,21 @@
 					<strong>Email:</strong>
 					<%= @user.email %>
 				</p>
+				<section class="stats">
+      				<%= render 'shared/stats' %>
+    			</section>
+
 		</aside>
 	  
 		<aside class="col-xs-5">
-				<% if @user.microposts.any? %>
-      			<h3>Microposts (<%= @user.microposts.count %>)</h3>
-      			<ol class="microposts">
-        		<%= render @microposts %>
-      			</ol>
-      			<%= will_paginate @microposts %>
-    			<% end %>
+    		<%= render 'follow_form' if logged_in? %>
+    		<% if @user.microposts.any? %>
+     	 	<h3>Microposts (<%= @user.microposts.count %>)</h3>
+      		<ol class="microposts">
+        	<%= render @microposts %>
+      		</ol>
+      		<%= will_paginate @microposts %>
+    		<% end %>
 		</aside>
 	</section>
 </div>

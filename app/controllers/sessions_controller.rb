@@ -27,4 +27,10 @@ class SessionsController < ApplicationController
       render 'new'
 	end  
   end
+
+  protected
+
+  def auth_hash
+    request.env['omniauth.auth']
+  end
 end
