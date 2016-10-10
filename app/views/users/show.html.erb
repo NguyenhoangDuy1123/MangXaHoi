@@ -7,6 +7,8 @@
 			<section class="micropost_form">
 				<%= render 'shared/micropost_form' %>
 			</section>
+			
+			<%= render 'follow_form' if logged_in? %>
 		</aside>
 	  
 		<aside class="col-xs-9">

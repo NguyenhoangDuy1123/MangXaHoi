@@ -16,6 +16,7 @@ module MangXaHoi
 	config.cache_classes = true
 	config.assets.compile = true
 	config.assets.digest = true
-
+# Include the authenticity token in remote forms.
+    config.action_view.embed_authenticity_token_in_remote_forms = true
   end
 end
