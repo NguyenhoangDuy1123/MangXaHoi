@@ -1,25 +1,28 @@
 <div class="row">
-	<section class="user_info">
-		<aside class="col-xs-3">
-			<section class="user_info">
-				<%= render 'shared/user_info' %>
-			</section>
-			<section class="micropost_form">
-				<%= render 'shared/micropost_form' %>
-			</section>
-			
-			<%= render 'follow_form' if logged_in? %>
-		</aside>
-	  
-		<aside class="col-xs-9">
-				<% if @user.microposts.any? %>
-					<ol class="microposts">
-						<%= render 'shared/feed' %>
-					</ol>
-					<%= will_paginate @microposts %>
-    			<% end %>
-		</aside>
-	</section>
+	<aside class="col-xs-4">
+		<section class="user_info">
+			<%= render 'shared/user_info' %>
+		</section>
+		
+		<section class="stats">
+			<%= render 'shared/stats' %>
+		</section>
+		
+		<section class="micropost_form">
+			<%= render 'shared/micropost_form' %>
+		</section>
+		
+		<%= render 'follow_form' if logged_in? %>
+	</aside>
+ 
+	<aside class="col-xs-8">
+			<% if @user.microposts.any? %>
+				<ol class="microposts">
+					<%= render 'shared/feed' %>
+				</ol>
+				<%= will_paginate @microposts %>
+			<% end %>
+	</aside>
 </div>
 
 

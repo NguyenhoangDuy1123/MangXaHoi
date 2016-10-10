@@ -1,12 +1,12 @@
-<%= link_to avatar_for(current_user), current_user %>
+<%= link_to avatar_for(@user), @user %>
 <p>
 	<strong>Name:</strong>
-	<%= current_user.name %>
+	<%= @user.name %>
 </p>		
 <p>
 	<strong>Email:</strong>
-	<%= current_user.email %>
+	<%= @user.email %>
 </p>
 <p>
-	<%= link_to "view my profile", current_user %>
+	<%= link_to "view my profile", @user %>
 </p>
