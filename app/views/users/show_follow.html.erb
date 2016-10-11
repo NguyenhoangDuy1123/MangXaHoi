@@ -4,7 +4,7 @@
     <section class="user_info">
       <%= avatar_for @user %>
       <p><h1><%= @user.name %></h1></p>
-      <p><%= link_to "View my profile", @user %></p>
+      <p><%= link_to "View " + @user.name + " profile", @user %></p>
     </section>
 	
     <section class="stats">
@@ -20,7 +20,7 @@
             <tr>
 				<th><%= link_to avatar_for(user, size: 50), user %></th>
 				<th><%= user.name %></th>
-				<th><%= link_to "View profile", user %></th>
+				<th><%= link_to "View " + user.name + " profile", user %></th>
 			</tr>
           <% end %>
 		</table>
