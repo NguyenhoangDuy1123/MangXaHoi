@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 			get :following, :followers
 		end
 	end
+	
+	get    '/sreach',   to: 'users#search'
 
 	get    '/login',   to: 'sessions#new'
 	post   '/login',   to: 'sessions#create'

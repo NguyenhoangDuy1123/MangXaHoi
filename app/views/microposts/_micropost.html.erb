@@ -15,26 +15,22 @@
 		<% end %>
 	</span>
 	
-	<span class="timestamp">
-		<%= micropost.comments.count %>
+	<span class="Content">
+		<h3>Comments: </h3>
 	</span>
   
 	<% if micropost.comments.any? %>
 		<%= render micropost.comments %>
 	<% end %>
 
-	<span>
+	<span class="comments">
 		<%= form_for([micropost, micropost.comments.build]) do |f| %>
 			<div><%= hidden_field_tag :user_id, current_user.id %></div>
 			<div><%= hidden_field_tag :micropost_id, micropost.id %></div>
 			
-			<p>
-				<%= f.text_area :content %>
-			</p>
-			
-			<p>
-				<%= f.submit %>
-			</p>
+			<%= f.text_area :content, placeholder: "Write new comment..."%>
+
+			<%= f.submit %>
 		<% end %>
 	</span>
 </li>

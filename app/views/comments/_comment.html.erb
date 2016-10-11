@@ -1,7 +1,6 @@
-<span class="user"><%= link_to comment.user.name, comment.user %></span>
-
-<span class="content">
-    <%= comment.content %>
+<span class="comment">
+	<%= link_to comment.user.name + ': ', comment.user %>
+	<%= comment.content %>
 </span>
 
 <span class="timestamp">
@@ -10,3 +9,5 @@
       <%= link_to "delete", [comment.micropost, comment], method: :delete, data: { confirm: "You sure?" } %>
     <% end %>
 </span>
+
+<hr style="height:1px; width:100%; border:none;color:#333;background-color:#333;" />

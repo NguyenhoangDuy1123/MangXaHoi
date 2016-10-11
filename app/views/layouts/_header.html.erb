@@ -1,7 +1,7 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
 	<div class="container">
 		<nav>
-			<ul class="nav navbar-nav navbar-right">
+			<ul class="nav navbar-nav navbar-left">
 				<li><%= link_to "Home", root_path %></li>
 				<% if logged_in? %> 
 				  <li class="dropdown">
@@ -19,6 +19,15 @@
 				  <li><%= link_to "Sign up",   new_user_path %></li>
 				  <li><%= link_to "Sign in with Twitter", "/auth/twitter" %></li>
 				<% end %>
+			</ul>
+			
+			<ul class="nav navbar-nav navbar-right">
+				<div class="input-group">
+					<%= form_tag('/sreach', :method => "get", id: "search-form") do %>
+						<%= text_field_tag :search, params[:search], placeholder: "Search user", class: 'form-control' %>
+						<%= submit_tag "Search", class: 'btn btn-default' %>
+					<% end %>
+				</div>
 			</ul>
 		</nav>
 	</div>

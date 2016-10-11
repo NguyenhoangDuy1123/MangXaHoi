@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 	# GET /users
 	# GET /users.json
 	def index
-	@users = User.all
+		@users = User.all
 	end
 
 	# GET /users/1
@@ -78,6 +78,19 @@ class UsersController < ApplicationController
 		@user  = User.find(params[:id])
 		@users = @user.followers.paginate(page: params[:page])
 		render 'show_follow'
+	end
+	
+	def search
+		@user = User.find_by(name: params[:search])
+		
+		if @user
+			@microposts = @user.microposts.paginate(page: params[:page])
+			@new_micropost = @user.microposts.build
+			@feed_items = @user.feed.paginate(page: params[:page])
+			render 'show'
+		else
+			render 'shared/sreach_error'
+		end
 	end
 
 	private
